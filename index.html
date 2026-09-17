@@ -1,98 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Familial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Familial</title>
 
-    style.css
+<link rel
+
 </head>
 
 <body>
 
-    <div id="background"></div>
+<div id="background"></div>
 
-    <header>
+<header>
+    <div>
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
 
-        <div>
-            <div id="clock"></div>
-            <div id="date"></div>
+    <div class="weather-top">
+        <div>SAINT-PAUL, QC</div>
+        <div id="temp">--°C</div>
+    </div>
+</header>
+
+<main>
+
+    <section class="weather-card">
+        <h2>MÉTÉO</h2>
+        <div id="currentWeather">Chargement...</div>
+        <div id="forecast"></div>
+    </section>
+
+    <section class="center-card">
+        <h1>DASHBOARD FAMILIAL</h1>
+
+        <div class="news-title">
+            À LA UNE
         </div>
 
-        <div class="weather-top">
-            <div>SAINT-PAUL, QC</div>
-            <div id="temp">--°C</div>
-        </div>
-
-    </header>
-
-    <main>
-
-        <section class="weather-card">
-
-            <h2>🌤 MÉTÉO</h2>
-
-            <div id="currentWeather">
-                Chargement...
-            </div>
-
-            <div id="forecast"></div>
-
-        </section>
-
-        <section class="center-card">
-
-            <h1>DASHBOARD FAMILIAL</h1>
-
-            <div class="news-title">
-                📰 À LA UNE
-            </div>
-
-            <div id="news">
-                Chargement...
-            </div>
-
-            <div class="next-game-card">
-
-                <h2>🏒 PROCHAIN MATCH DU CH</h2>
-
-                <div id="next-game">
-                    Chargement...
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="sports-card">
-
-            <h2>🏒 NHL</h2>
-
-            <div id="nhl">
-                Chargement...
-            </div>
-
-            <h2 class="spacer">🏈 NFL</h2>
-
-            <div id="nfl">
-                Chargement...
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <div id="ticker">
+        <div id="news">
             Chargement...
         </div>
 
-    </footer>
+        <div class="next-game-card">
+            <h2>PROCHAIN MATCH DU CH</h2>
+            <div id="next-game">
+                Chargement...
+            </div>
+        </div>
+    </section>
 
-    app.jsscript>
+    <section class="sports-card">
+        <h2>NHL</h2>
+        <div id="nhl">Chargement...</div>
+
+        <h2 class="spacer">NFL</h2>
+        <div id="nfl">Chargement...</div>
+    </section>
+
+</main>
+
+<footer>
+    <div id="ticker">
+        Chargement...
+    </div>
+</footer>
+
+app.jsscript>
 
 </body>
-
 </html>
