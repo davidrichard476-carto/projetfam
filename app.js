@@ -2,7 +2,7 @@
 // HORLOGE
 //------------------------------------
 
-function updateClock(){
+function updateClock() {
 
     const now = new Date();
 
@@ -11,25 +11,23 @@ function updateClock(){
 
     document.getElementById("date").innerHTML =
         now.toLocaleDateString("fr-CA", {
-            weekday:"long",
-            day:"numeric",
-            month:"long",
-            year:"numeric"
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
         });
 }
 
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
 updateClock();
-
 
 //------------------------------------
 // METEO SAINT-PAUL
 //------------------------------------
 
-async function loadWeather(){
+async function loadWeather() {
 
-    const url =
-    "https://api.open-meteo.com/v1/forecast?latitude=45.99&longitude=-73.43&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto";
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=45.99&longitude=-73.43&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto";
 
     const response = await fetch(url);
     const data = await response.json();
@@ -44,125 +42,88 @@ async function loadWeather(){
 
     let forecast = "";
 
-    for(let i=0;i<3;i++){
+    for (let i = 0; i < 3; i++) {
 
         forecast += `
         <div>
-        Jour ${i+1}
-        :
-        ${data.daily.temperature_2m_max[i]}°
-        /
-        ${data.daily.temperature_2m_min[i]}°
+            Jour ${i + 1} :
+            ${data.daily.temperature_2m_max[i]}°
+            /
+            ${data.daily.temperature_2m_min[i]}°
         </div>`;
     }
 
     document.getElementById("forecast").innerHTML =
         forecast;
-
-
-    if(temp >= 25){
-
-        document.getElementById("background").style.background =
-        "linear-gradient(135deg,#f59e0b,#1e3a8a)";
-    }
-
-    else if(temp <= 0){
-
-        document.getElementById("background").style.background =
-        "linear-gradient(135deg,#38bdf8,#0f172a)";
-    }
-
-    else{
-
-        document.getElementById("background").style.background =
-        "linear-gradient(135deg,#0f172a,#1e3a8a,#0f172a)";
-    }
 }
 
 loadWeather();
-
-setInterval(loadWeather,900000);
-
+setInterval(loadWeather, 900000);
 
 //------------------------------------
 // NHL
 //------------------------------------
 
-async function loadNHL(){
+async function loadNHL() {
 
-    try{
+    try {
 
-        const response =
-        await fetch(
-        "https://api-web.nhle.com/v1/score/now"
+        const response = await fetch(
+            "https://api-web.nhle.com/v1/score/now"
         );
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
         let html = "";
 
-        data.games
-        .slice(0,10)
-        .forEach(game=>{
+        data.games.slice(0, 10).forEach(game => {
 
             html += `
             <div>
-            ${game.awayTeam.abbrev}
-            ${game.awayTeam.score}
-            -
-            ${game.homeTeam.score}
-            ${game.homeTeam.abbrev}
+                ${game.awayTeam.abbrev}
+                ${game.awayTeam.score}
+                -
+                ${game.homeTeam.score}
+                ${game.homeTeam.abbrev}
             </div>`;
         });
 
-        document.getElementById("nhl").innerHTML =
-        html;
-    }
-    catch{
+        document.getElementById("nhl").innerHTML = html;
+
+    } catch {
 
         document.getElementById("nhl").innerHTML =
-        "Données NHL indisponibles";
+            "Données NHL indisponibles";
     }
 }
 
 loadNHL();
-
-setInterval(loadNHL,300000);
-
+setInterval(loadNHL, 300000);
 
 //------------------------------------
 // NFL
 //------------------------------------
 
-async function loadNFL(){
+async function loadNFL() {
 
-    try{
+    try {
 
-        const response =
-        await fetch(
-        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+        const response = await fetch(
+            "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
         );
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
         let html = "";
         let ticker = "";
 
-        data.events
-        .slice(0,10)
-        .forEach(game=>{
+        data.events.slice(0, 10).forEach(game => {
 
             const c =
-            game.competitions[0].competitors;
+                game.competitions[0].competitors;
 
             const score =
-            `${c[0].team.abbreviation}
-            ${c[0].score}
-            -
-            ${c[1].score}
-            ${c[1].team.abbreviation}`;
+                `${c[0].team.abbreviation} ${c[0].score} - ${c[1].score} ${c[1].team.abbreviation}`;
 
             html += `<div>${score}</div>`;
 
@@ -170,103 +131,58 @@ async function loadNFL(){
         });
 
         document.getElementById("nfl").innerHTML =
-        html;
+            html;
 
         document.getElementById("ticker").innerHTML =
-        ticker;
-    }
-    catch{
+            ticker;
+
+    } catch {
 
         document.getElementById("nfl").innerHTML =
-        "NFL indisponible";
+            "NFL indisponible";
     }
 }
 
 loadNFL();
-
-setInterval(loadNFL,300000);
-
+setInterval(loadNFL, 300000);
 
 //------------------------------------
 // PROCHAIN MATCH DU CH
 //------------------------------------
 
-async function loadCanadiensGame(){
+async function loadCanadiensGame() {
 
-    try{
+    try {
 
-        const response =
-        await fetch(
-        "https://api-web.nhle.com/v1/club-schedule-season/MTL/now"
+        const response = await fetch(
+            "https://api-web.nhle.com/v1/club-schedule-season/MTL/now"
         );
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
-        const next =
-        data.games.find(
+        const next = data.games.find(
             g => g.gameState === "FUT"
         );
 
-        if(next){
+        if (next) {
 
             const opponent =
-            next.homeTeam.abbrev === "MTL"
-            ? next.awayTeam.abbrev
-            : next.homeTeam.abbrev;
+                next.homeTeam.abbrev === "MTL"
+                    ? next.awayTeam.abbrev
+                    : next.homeTeam.abbrev;
 
             const date =
-            new Date(next.startTimeUTC);
+                new Date(next.startTimeUTC);
 
             document.getElementById("next-game").innerHTML =
-            `
-            MTL vs ${opponent}<br>
-            ${date.toLocaleDateString("fr-CA")}<br>
-            ${date.toLocaleTimeString("fr-CA")}
-            `;
+                `
+                MTL vs ${opponent}<br>
+                ${date.toLocaleDateString("fr-CA")}<br>
+                ${date.toLocaleTimeString("fr-CA")}
+                `;
         }
 
-    }catch{
+    } catch {
 
         document.getElementById("next-game").innerHTML =
-        "Information indisponible";
-    }
-}
-
-loadCanadiensGame();
-
-
-//------------------------------------
-// NOUVELLES LOCALES
-//------------------------------------
-
-const headlines = [
-
-"Bienvenue sur votre écran familial",
-"Météo, sports et informations en temps réel",
-"Consultez les résultats de vos équipes préférées",
-"Tableau de bord personnel optimisé pour Yodeck",
-"Bonne journée à toute la famille"
-
-];
-
-let newsIndex = 0;
-
-function rotateNews(){
-
-    document.getElementById("news").innerHTML =
-    `<div class='news-item'>${headlines[newsIndex]}</div>`;
-
-    newsIndex++;
-
-    if(newsIndex >= headlines.length){
-        newsIndex = 0;
-    }
-}
-
-rotateNews();
-
-setInterval(
-rotateNews,
-10000
-);
+            "Information indisponible
