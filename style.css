@@ -1,163 +1,189 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#08111f;
-    color:white;
-    font-family:'Segoe UI',sans-serif;
-    overflow:hidden;
+body {
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    background: #08111f;
+    overflow: hidden;
 }
 
-#background{
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top right,
-    #1e40af,
-    #08111f);
-    z-index:-1;
+#background {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #0f172a
+    );
+    z-index: -1;
+    transition: 2s;
 }
 
-header{
+header {
+    height: 120px;
+    padding: 20px 40px;
 
-    height:120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 40px;
-
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(10px);
+    background: rgba(255,255,255,.05);
 }
 
-#clock{
-    font-size:56px;
-    font-weight:bold;
+#clock {
+    font-size: 64px;
+    font-weight: bold;
 }
 
-#date{
-    font-size:24px;
+#date {
+    font-size: 24px;
 }
 
-.weather-top{
-    text-align:right;
-    font-size:24px;
+.weather-top {
+    text-align: right;
 }
 
-#temp{
-    font-size:60px;
-    font-weight:bold;
+#temp {
+    font-size: 65px;
+    font-weight: bold;
 }
 
-.container{
+main {
+    height: calc(100vh - 180px);
 
-    height:calc(100vh - 180px);
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-    25%
-    50%
-    25%;
+        25%
+        50%
+        25%;
 }
 
 .weather-card,
-.sports-card,
-.center-card{
+.center-card,
+.sports-card {
 
-    margin:15px;
+    margin: 15px;
 
-    border-radius:20px;
+    padding: 25px;
 
-    background:rgba(255,255,255,.08);
+    border-radius: 20px;
 
-    backdrop-filter:blur(10px);
+    background: rgba(255,255,255,.08);
 
-    padding:25px;
+    backdrop-filter: blur(10px);
 }
 
 .weather-card h2,
-.sports-card h2{
+.sports-card h2 {
 
-    color:#60a5fa;
-    margin-bottom:20px;
+    color: #60a5fa;
+    margin-bottom: 20px;
 }
 
-#currentWeather{
-
-    font-size:30px;
-    margin-bottom:20px;
+#currentWeather {
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
-#forecast{
-
-    font-size:20px;
-    line-height:2;
+#forecast {
+    font-size: 24px;
+    line-height: 2.2;
 }
 
-.center-card{
+.center-card {
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
 }
 
-.center-card h1{
+.center-card h1 {
 
-    margin-top:20px;
-    margin-bottom:40px;
+    text-align: center;
 
-    font-size:42px;
+    margin-bottom: 25px;
+
+    font-size: 44px;
 }
 
-.big-news{
+.news-title {
 
-    color:#f59e0b;
-    margin-bottom:20px;
+    font-size: 28px;
 
-    font-size:28px;
+    color: #f59e0b;
+
+    margin-bottom: 20px;
 }
 
-#news{
+#news {
 
-    width:100%;
+    font-size: 24px;
+    line-height: 1.8;
+}
 
-    font-size:24px;
-    line-height:1.8;
+.news-item {
+
+    margin-bottom: 15px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.next-game-card {
+
+    margin-top: 30px;
+
+    background: #991b1b;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+#next-game {
+
+    margin-top: 10px;
+
+    font-size: 28px;
+
+    font-weight: bold;
 }
 
 #nhl,
-#nfl{
+#nfl {
 
-    font-size:18px;
-    line-height:1.8;
+    font-size: 20px;
+
+    line-height: 1.9;
 }
 
-.spacer{
-    margin-top:40px;
+.spacer {
+    margin-top: 35px;
 }
 
-footer{
+footer {
 
-    height:60px;
+    height: 60px;
 
-    background:#1d4ed8;
+    display: flex;
+    align-items: center;
 
-    display:flex;
-    align-items:center;
+    background: #1d4ed8;
 }
 
-#ticker{
+#ticker {
 
-    padding-left:25px;
+    padding-left: 25px;
 
-    font-size:22px;
+    font-size: 24px;
 
-    white-space:nowrap;
+    white-space: nowrap;
 }
