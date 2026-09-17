@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard Familial</title>
 
     style.css
@@ -14,54 +15,72 @@
     <div id="background"></div>
 
     <header>
-        <div>
+
+        <div class="date-section">
             <div id="clock"></div>
             <div id="date"></div>
         </div>
 
-        <div id="weather-top">
-            <span id="temp">--°C</span>
+        <div class="weather-top">
+            🌤️ Saint-Paul, QC
+            <div id="temp">--°C</div>
         </div>
+
     </header>
 
-    <main>
+    <div class="container">
 
-        <aside class="weather-panel">
-            <h2>🌤️ MÉTÉO</h2>
+        <section class="weather-card">
 
-            <div id="weather-desc">Chargement...</div>
+            <h2>MÉTÉO</h2>
+
+            <div id="currentWeather">
+                Chargement...
+            </div>
 
             <div id="forecast">
-                Prévisions à venir...
             </div>
-        </aside>
 
-        <section class="center-panel">
-            <div class="family-title">
-                Famille Richard
-            </div>
         </section>
 
-        <aside class="sports-panel">
+        <section class="center-card">
+
+            <h1>DASHBOARD FAMILIAL</h1>
+
+            <div class="big-news">
+                Actualités principales
+            </div>
+
+            <div id="news">
+                Chargement des nouvelles...
+            </div>
+
+        </section>
+
+        <section class="sports-card">
 
             <h2>🏒 NHL</h2>
-            <div id="nhl-scores">
+
+            <div id="nhl">
                 Chargement...
             </div>
 
-            <h2 class="nfl-title">🏈 NFL</h2>
-            <div id="nfl-scores-side">
+            <h2 class="spacer">🏈 NFL</h2>
+
+            <div id="nfl">
                 Chargement...
             </div>
 
-        </aside>
+        </section>
 
-    </main>
+    </div>
 
     <footer>
+
         <div id="ticker">
-            Chargement des résultats NFL...
+            Chargement...
         </div>
+
     </footer>
 
     app.jsscript>
