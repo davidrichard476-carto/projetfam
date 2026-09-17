@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: white;
+    overflow: hidden;
+}
+
+#background {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.20;
+    z-index: -1;
+    transition: 1s;
+}
+
+header {
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0,0,0,0.35);
+}
+
+#clock {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 24px;
+}
+
+#weather-top {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+main {
+    height: calc(100vh - 180px);
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+
+.weather-panel,
+.sports-panel {
+    padding: 25px;
+    background: rgba(0,0,0,0.30);
+}
+
+.weather-panel h2,
+.sports-panel h2 {
+    margin-bottom: 20px;
+    color: #7dd3fc;
+}
+
+.weather-panel {
+    border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.sports-panel {
+    border-left: 1px solid rgba(255,255,255,.15);
+}
+
+.center-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.family-title {
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px black;
+}
+
+#weather-desc {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#forecast {
+    line-height: 2;
+    font-size: 22px;
+}
+
+#nhl-scores,
+#nfl-scores-side {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.nfl-title {
+    margin-top: 40px;
+}
+
+footer {
+    height: 60px;
+    background: #1e3a8a;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+#ticker {
+    white-space: nowrap;
+    font-size: 24px;
+    padding-left: 20px;
+}
+
+.score-line {
+    margin-bottom: 10px;
+}
+
+.canadiens {
+    color: #ef4444;
+    font-weight: bold;
+}
